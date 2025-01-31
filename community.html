@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Food Sharing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #491120;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height:450px;
+        }
+        .container {
+            max-width:100%;
+            height:950px;
+            background: rgb(198, 197, 197);
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+        .card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 30%; 
+            height:350px;
+            background-color: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size:50px;
+            color: #E57373;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .card-text {
+            font-size:20px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .food-item {
+                width: 100%;
+            }
+        }
+        .last{
+            background-color:#491120;
+            height:200px;
+            font-size: 30px;
+            font-weight: 200;
+            line-height: 1.5;
+            justify-items: center;
+            align-items: center;
+            color: white;
+
+        }
+        header .head{
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1;
+            justify-items: center;
+            align-items: center;
+        }
+        header .heading{
+            font-size: 30px;
+            font-weight: 200;
+            line-height: 1.5;
+            justify-items: center;
+            align-items: center;
+
+        }
+        .container .my{
+            font-size:70px;
+            font-weight:700;
+            line-height: 1.5;
+            justify-items: center;
+            align-items: center;
+        }
+        .container .mine{
+            font-size:30px;
+            font-weight:300;
+            line-height: 1;
+            justify-items: center;
+            align-items: center;
+        }
+        .button-link{
+            text-decoration: none;
+            text-decoration-color: #f4f4f4;
+            font-size: 25px;
+            font-size: 300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p class="head">Reduce Your Waste,<br> Share Your Food!</p>
+        <p class="heading">Every year, tons of food go to waste while many people struggle with hunger.
+            By sharing your surplus food, you can help reduce waste and support those in need, creating a more sustainable and caring community.</p>
+    </header>
+    <div class="container">
+        <p class="my">About Waste Not Food</p>
+        <p class="mine">
+            We are committed to reducing food waste and ensuring that surplus food reaches those who need it most. Join us in making a difference.
+        </p>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon">&#9679;&#9679;&#9679;</div>
+                <h3 class="card-title">Share Your Surplus</h3>
+                <p class="card-text">Connect with a community eager to reduce food waste together.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#127799;</div>
+                <h3 class="card-title">Community Engagement</h3>
+                <p class="card-text">Join local initiatives and events that promote food sharing and sustainability.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#9685;</div>
+                <h3 class="card-title">Sustainable Solutions</h3>
+                <p class="card-text">Discover practical tips to minimize food waste in households and communities.</p>
+            </div>
+        </div>
+        <div>
+            <p style="font-size: 45px;">Join The Movement</p>
+            <p style="font-size:30px;">Fill out our form to contribute and be a part of the food-sharing initiative.</p>
+             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTuMOvWmynxBUDhJvmuUNZhQr7kCkBa7j1scq9gLDxdbbngg/viewform" class="button-link">Donate Now</a>
+        </div>
+    </div>
+    <div class="last">
+       <p>In The Movement To Reduce The Waste!</p>
+       <p>Be a part of our community that actively participates in reducing food waste,
+         supporting local initiatives and fostering sustainable practices to feed those in need. Your engagement can lead to positive change!</p>
+    </div>
+</body>
+</html>
