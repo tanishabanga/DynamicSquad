@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Generator</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    
+    .recipes {
+        margin-top: 20px;
+    }
+    
+    .recipe {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+    }
+    
+    .recipe h2 {
+        margin: 0;
+    }
+    
+    .recipe p {
+        margin: 5px 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Food Waste Reduction Recipe Generator</h1>
+        <p>Enter the ingredients you have:</p>
+        <input type="text" id="ingredients" placeholder="e.g., spinach, tomatoes,milk">
+        <button id="generate">Generate Recipes</button>
+        
+        <div id="recipes" class="recipes"></div>
+    </div>
+
+    <script>const recipes = [
+        {
+            name: "Spinach and Lentil Soup",
+            ingredients: ["spinach", "lentils", "onion", "garlic", "olive oil", "salt", "pepper"],
+            instructions: [
+                "In a pot, heat olive oil over medium heat.",
+                "Add chopped onion and minced garlic, sauté until translucent.",
+                "Add lentils and water (or broth), bring to a boil.",
+                "Reduce heat and simmer until lentils are tender.",
+                "Stir in spinach and cook until wilted.",
+                "Season with salt and pepper to taste."
+            ]
+        },
+        {
+            name: "Tomato and Spinach Rice",
+            ingredients: ["spinach", "rice", "tomato", "onion", "olive oil", "salt", "pepper"],
+            instructions: [
+                "In a pan, heat olive oil and sauté chopped onion until golden.",
+                "Add chopped tomatoes and cook until soft.",
+                "Stir in rice and water (or broth), bring to a boil.",
+                "Reduce heat, cover, and simmer until rice is cooked.",
+                "Add spinach and cook until wilted, then season with salt and pepper."
+            ]
+        },
+        {
+            name: "Potato and Greens Curry",
+            ingredients: ["potato", "greens", "onion", "tomato", "spices", "oil", "salt"],
+            instructions: [
+                "Heat oil in a pan and add chopped onion, sauté until golden.",
+                "Add diced potatoes and cook for a few minutes.",
+                "Stir in chopped tomatoes and spices, cook until tomatoes are soft.",
+                "Add greens and a little water, cover, and cook until potatoes are tender."
+            ]
+        },
+        {
+            name: "Curd Rice",
+            ingredients: ["rice", "curd", "salt", "greens", "mustard seeds"],
+            instructions: [
+                "Cook rice and let it cool.",
+                "In a bowl, mix cooled rice with curd and salt.",
+                "In a small pan, heat oil and add mustard seeds until they pop.",
+                "Pour the tempering over the rice and mix in chopped greens."
+            ]
+        },
+        {
+            name: "Bread and Milk Pudding",
+            ingredients: ["bread", "milk", "sugar", "eggs", "vanilla extract"],
+            instructions: [
+                "Preheat the oven to 350°F (175°C).",
+                "In a bowl, whisk together milk, sugar, eggs, and vanilla extract.",
+                "Tear bread into pieces and add to the mixture, let it soak.",
+                "Pour into a greased baking dish and bake for 30-40 minutes until set."
+            ]
+        },
+        {
+            name: "Lentil and Vegetable Stew",
+            ingredients: ["lentils", "potato", "onion", "tomato", "spinach", "carrots", "spices"],
+            instructions: [
+                "In a large pot, sauté chopped onion in oil until translucent.",
+                "Add diced potatoes, carrots, and spices, cook for a few minutes.",
+                "Stir in lentils and water, bring to a boil.",
+                "Reduce heat and simmer until lentils and vegetables are tender.",
+                "Add spinach at the end and cook until wilted."
+            ]
+        },
+        {
+            name: "Biscuits and Milk",
+            ingredients: ["biscuits", "milk"],
+            instructions: [
+                "Serve biscuits with a glass of milk for a quick snack."
+            ]
+        }
+    ];
+    
+    document.getElementById('generate').addEventListener('click', function() {
+        const input = document.getElementById('ingredients').value.toLowerCase();
+        const inputIngredients = input.split(',').map(ingredient => ingredient.trim());
+        const output = document.getElementById('recipes');
+        output.innerHTML = '';
+    
+        const filteredRecipes = recipes.filter(recipe => 
+            inputIngredients.every(ingredient => recipe.ingredients.includes(ingredient))
+        );
+    
+        if (filteredRecipes.length > 0) {
+            filteredRecipes.forEach(recipe => {
+                const recipeDiv = document.createElement('div');
+                recipeDiv.classList.add('recipe');
+                recipeDiv.innerHTML = `
+                    <h2>${recipe.name}</h2>
+                    <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
+                    <p><strong>Instructions:</strong></p>
+                    <ol>
+                        ${recipe.instructions.map(step => <li>${step}</li>).join('')}
+                    </ol>
+                `;
+                output.appendChild(recipeDiv);
+            });
+        } else {
+            output.innerHTML = '<p>No matching recipes found.</p>';
+        }
+    });
+</script>
+</body>
+</html>
